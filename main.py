@@ -1,12 +1,4 @@
-from deep_translator import (GoogleTranslator,
-                             PonsTranslator,
-                             LingueeTranslator,
-                             MyMemoryTranslator,
-                             YandexTranslator,
-                             DeepL,
-                             QCRI,
-                             single_detection,
-                             batch_detection)
+from deep_translator import (GoogleTranslator)
 import random
 
 
