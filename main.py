@@ -6,14 +6,24 @@ lenguajes = GoogleTranslator.get_supported_languages()
 
 
 def clicked():
+    log = []
+    def log_fun():
+        print(log)
+        listbox = Listbox(width=50)
+        listbox.insert(0, *log)
+        listbox.grid(column=3,row=4)
     translated = txt.get()
+    log.append(translated)
     veces = int(num.get())
     for i in range(veces):
         translated = GoogleTranslator(source='auto', target=random.choice(lenguajes)).translate(text=translated)
-
+        log.append(translated)
     translated = GoogleTranslator(source='auto', target="es").translate(text=translated)
+    log.append(translated)
     print(translated)
     lbl.configure(text=translated)
+    btn_log= Button(window,text="Mostrar registro", command=log_fun)
+    btn_log.grid(column=3,row=5)
 
 window = Tk()
 
@@ -40,7 +50,7 @@ btn = Button(window, text="Traducir", command=clicked)
 
 btn.grid(column=2, row=4)
 
-lbl = Label(window, font=("Arial Bold",20))
+lbl = Label(window, font=("Arial Bold",15))
 
 lbl.grid(column=2, row=5)
 
